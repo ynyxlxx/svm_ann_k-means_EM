@@ -1,5 +1,0 @@
-group project 
-
-SVM
-
-ANN
