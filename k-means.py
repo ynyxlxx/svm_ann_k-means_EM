@@ -1,6 +1,11 @@
 import random
 import math
 import argparse
+import time
+
+parser = argparse.ArgumentParser(description='k-means')
+parser.add_argument('dataset_name')
+args = parser.parse_args()
 
 def save_result(filename, cluster):
     file = open(filename, 'w')
@@ -9,9 +14,9 @@ def save_result(filename, cluster):
     file.close()
     return
 
-dataset_name = 'dataset.txt'    #read dataset from textfile.
+    #read dataset from textfile.
 dataset = []
-with open(dataset_name, 'rt') as f:
+with open(args.dataset_name, 'rt') as f:
     for line in f:
         dataset.append(float(line.strip()))
 
@@ -23,6 +28,7 @@ start_centroid_1 = random.uniform(min_number_in_data, max_number_in_data)
 start_centroid_2 = random.uniform(min_number_in_data, max_number_in_data)
 
 #distance computation
+t = time.time()
 counter = 1
 while True:
     print('iteration: %i' %counter)
@@ -47,7 +53,8 @@ while True:
         start_centroid_1 = new_centroid_1
         start_centroid_2 = new_centroid_2
 
+print('time cost: %fs' %(time.time()-t))
 save_result('k-means-cluster-1.txt', cluster_1)
 save_result('k-means-cluster-2.txt', cluster_2)
 
-print('save result to text file.')
+print('save result to text file k-means-cluster1.txt and k-means-cluster2.txt.')

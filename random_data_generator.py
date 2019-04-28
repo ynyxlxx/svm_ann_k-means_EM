@@ -3,8 +3,8 @@ import numpy as np
 mu1 = 1                            # set the number of points (e.g. 100), the mean, and the standard deviation.
 sigma1 = 3
 num1 = 100
-mu2 = 4
-sigma2 = 10
+mu2 = 9
+sigma2 = 3
 num2 =100
 
 rand_data_set1 = np.random.normal(mu1, sigma1, num1)  #generate random number with numpy function.
